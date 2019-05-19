@@ -1,0 +1,5 @@
+.root {
+    -fx-font-family: 'Lato Light';
+    -fx-padding    : 10;
+    -fx-spacing    : 10;
+}

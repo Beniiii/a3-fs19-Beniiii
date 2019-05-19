@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+}
+
+group 'ch.fhnw'
+version '0.1'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/java", "src/main/resources"]
+        }
+    }
+}
+
+dependencies {
+	compile 'com.dlsc.formsfx:formsfx-core:11.3.2'
+
+    testImplementation('org.junit.jupiter:junit-jupiter:5.4.2')
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
