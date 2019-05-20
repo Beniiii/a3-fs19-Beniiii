@@ -10,6 +10,7 @@
 ## Entwicklung einer Geschäftsapplikation
 
 Implementieren Sie eine Applikation Ihrer Wahl, die mehrere der typischen Anforderungen einer Geschäftsapplikation erfüllt, z.B.: 
+  - die Themen aus dem Unterricht (Kantone, Gemeinden, Schweizer Berge) sind ausgeschlossen
   - effiziente Dateneingabe in einem hochfunktionalen Formular (Validierung, Visualisierung obligatorischer Felder, readOnly/writeable-Umschaltung, ...)
       - Applikationen, die überwiegend Daten anzeigen ohne diese Daten verändern zu können, sind nicht genügend.
   - effiziente Behandlung von grossen Datenmengen
