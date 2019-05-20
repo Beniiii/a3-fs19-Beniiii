@@ -7,6 +7,6 @@ public class SomeSericeImpl implements SomeService {
 
     @Override
     public SomeDTO get(long id) {
-        return new SomeDTO("" + id, "dto-" + id);
+        return new SomeDTO(String.valueOf(id), "dto-" + id);
     }
 }

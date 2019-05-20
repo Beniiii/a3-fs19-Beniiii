@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.service.SomeService;
 import uieng.businessapplication.service.serviceimpl.SomeSericeImpl;
-import uieng.businessapplication.view.RootPane;
+import uieng.businessapplication.view.ApplicationUI;
 
 public class AppStarter extends Application {
 
@@ -16,7 +16,7 @@ public class AppStarter extends Application {
     public void start(Stage primaryStage){
         SomeService service   = new SomeSericeImpl();
         RootPM      pm        = new RootPM(service);
-        Parent      rootPanel = new RootPane(pm);
+        Parent      rootPanel = new ApplicationUI(pm);
 
         Scene scene = new Scene(rootPanel);
 

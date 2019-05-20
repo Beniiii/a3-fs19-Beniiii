@@ -7,13 +7,13 @@ import javafx.scene.layout.VBox;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.view.util.ViewMixin;
 
-public class RootPane extends VBox implements ViewMixin {
+public class ApplicationUI extends VBox implements ViewMixin {
     private RootPM rootPM;
 
     private Label     idLabel;
     private TextField nameField;
 
-    public RootPane(RootPM rootPM) {
+    public ApplicationUI(RootPM rootPM) {
         this.rootPM = rootPM;
         init();
     }
