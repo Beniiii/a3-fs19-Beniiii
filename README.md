@@ -1,55 +1,62 @@
-# Workshop4c (UI Engineering) Assignment 2
+# Workshop4c (UI Engineering) Abschlussprojekt
 
 ## Bearbeitet von
  - Vorname Nachname 
  
-## Abgabe
-- Montag, 13.5.2018, 10:00 Uhr
+## Abgabe und Präsentation
+- Montag, 3.6.2019
 - Die Abgabe erfolgt durch ein "Push" auf den Master-Branch Ihres GitHub-Repositories.
  
-## Formular einer Geschäftsapplikation
+## Entwicklung einer Geschäftsapplikation
 
-Implementieren Sie ein Formular, das die typischen Anforderungen einer Geschäftsapplikation erfüllt. 
+Implementieren Sie eine Applikation Ihrer Wahl, die mehrere der typischen Anforderungen einer Geschäftsapplikation erfüllt, z.B.: 
+  - effiziente Dateneingabe in einem hochfunktionalen Formular (Validierung, Visualisierung obligatorischer Felder, readOnly/writeable-Umschaltung, ...)
+      - Applikationen, die überwiegend Daten anzeigen ohne diese Daten verändern zu können, sind nicht genügend.
+  - effiziente Behandlung von grossen Datenmengen
+  - Unterstützung der CRUD-Operationen für das Anlegen, Einlesen, Verändern und Löschen von Datensätzen
+  - durchgängige Mehrsprachigkeit
+  - Unterstützung von Undo/Redo
+  - inkrementelle Suche
+  - geeignete, auf die jeweilige Anwendungsdomäne angepasste, UI-Elemente
+  
+Die Implementierung muss auf den im Unterricht erarbeiteten Grundkonzepten beruhen
+  - 3-Layer Architektur
+  - Einsatz von DTOs im Service-Layer
+  - asynchrone Service-Calls
+  - konsequente Trennung von Model und View
+  - gegebenenfalls konsequente Umsetzung von MVC in der im Unterricht besprochenen Variante.
+  
+Die Applikation muss mit Java und mit JavaFX als UI-Technologie implementiert werden. Es ist erlaubt, hilfreiche 
+Libraries zu verwenden, insbesondere FormsFX, PreferencesFX und WorkbenchFX.
 
-Das zu implementierende Formular dient der Eingabe und Verwaltung eines Kantons.
+Falls WorkbenchFX zum Einsatz kommt:
+  - Es können mehrere Teams zusammenarbeiten und eine gemeinsame WorkbenchFX-basierte Applikation bearbeiten
+  - Jedes Team muss eindeutig einem (oder mehreren) WorkbenchFX-Modul zugeordnet werden können.
+  - WorkbenchFX dient der Integration dieser einzelnen Module zu einer Gesamtapplikation. 
+  - die obigen Anforderungen gelten sinngemäss für jedes einzelne Modul
 
-Das UI soll auf Basis JavaFX umgesetzt werden. Sie können FormsFX verwenden, müssen aber nicht.
-
-Als Ausgangsbasis ist im Repository eine Teil-Applikation enthalten.
- - Der Service-Layer, die notwendigen Presentation-Model-Klassen und die Toolbar und der Header des UI sind vorhanden.
- - Es fehlt das komplette Formular.
- - Entscheiden Sie auf welcher Basis Sie das Formular implementieren wollen - mit FormsFX, mit dem "attribute-based Ansatz" oder mit einer Eigenentwicklung.
+Als Ausgangsbasis ist im Repository das entsprechende Application-Template aus dem Unterricht enthalten.
 
 
 ## Bewertung:
- - Es können in diesem Assignment 2 Punkte erreicht werden, wenn mindestens:
-   - die Implementierung die im Unterricht erarbeiteten Architektur-Regeln umsetzt
-   - alle Attribute des CantonPM im Formular vorhanden sind
-   - die Werte, die im Header angezeigt werden, sofort aktualisiert werden sobald im Formular der entsprechende Wert geändert wird
-       - die im gegebenen Header bereits dargestellten Informationen dürfen nicht entfernt werden
-   - das Formular "zweispaltig" ist
-       - eine Spalte besteht aus der Beschriftung und dem Eingabefeld für jedes Attribut
-   - Mehrsprachigkeit ist umgesetzt 
-       - es kann via die entsprechenden Buttons zwischen Deutsch und Englisch gewechselt werden
-   - diese Validierungen umgesetzt sind 
-       - alle Eingaben sind syntaktisch korrekt
-       - die obligatorischen Felder "kanton", "kuerzel", "kantonsnummer" sind nicht leer
-       - die numerischen Werte sind in einem plausiblen Wertebereich
-       - das Feld "einwohnerdichte" wird auf read-only gesetzt sobald die beiden Werte "einwohner" und "flaeche" angeben werden. 
-         Solange einer der beiden Werte fehlt, kann "einwohnerdichte" editiert werden.
+ - Es können in diesem Abschlussprojekt 10 Punkte erreicht werden, falls
+   - die Implementierung die im Unterricht erarbeiteten Architektur-Regeln umsetzt (maximal 4 Punkte)
+   - mindestens 4 oben genannten grundlegenden Anforderungen an eine Geschäftsapplikation umgesetzt sind (maximal 6 Punkte)
+   
+ - Wenn die Architektur-Regeln nicht eingehalten werden, können insgesamt maximal 4 Punkte erreicht werden, unabhängig von der Anzahl der 
+   implementierten Features
+   
+ - Handelt es sich um keine typische Geschäftsapplikation, z.B. ein Spiel oder eine Such- und Anzeige-Applikation können ebenfalls maximal 4 Punkte erreicht werden.  
  
- - 1 Punkt gibt es falls nur ein Teil der Anforderungen umgesetzt wurde       
-
  - Nicht compilier-fähiger Code oder ein Plagiat ergibt 0 Punkte
  
 
 ## Bitte beachten Sie:
- - Tragen Sie ihren Namen unter "Bearbeitet von" ein. Manche GitHub-Account-Namen können nicht
- eindeutig einer Person zugeordnet werden.
+ - Tragen Sie ihren Namen unter "Bearbeitet von" ein. Manche GitHub-Account-Namen können nicht eindeutig einer Person zugeordnet werden.
  
- - Es wird empfohlen die Assignment-Aufgaben, genau wie das Programmierprojekt, in einem 2er-Team zu bearbeiten. 
+ - Es wird empfohlen, das Programmierprojekt in einem 2er-Team zu bearbeiten. 
  
- - Falls Sie das Assignment zu zweit bearbeiten:
+ - Falls Sie das Projekt zu zweit bearbeiten:
    - tragen Sie beide Namen unter "Bearbeitet von" ein
    - arbeiten Sie ausschliesslich in einem Repository
    - falls sie beide Zugang zu diesem Repository wollen: tragen Sie die zweite Person als "Collaborator" ein (auf GitHub unter "Settings - > Collaborators & teams")
