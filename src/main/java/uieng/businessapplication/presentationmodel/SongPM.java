@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty;
 
 import uieng.businessapplication.service.SongDTO;
 
-public class SongPM {
+public class SongPM implements PMBase<Object> {
 
     private final LongProperty   id   = new SimpleLongProperty();
     private final StringProperty title = new SimpleStringProperty();

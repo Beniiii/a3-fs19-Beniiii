@@ -11,12 +11,14 @@ import javafx.scene.layout.VBox;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.view.util.ViewMixin;
 
-public class ApplicationUI extends BorderPane implements ViewMixin {
+public class ApplicationUI extends VBox implements ViewMixin {
     private RootPM rootPM;
-    private FormRenderer displayForm;
 
-    private Label     idLabel;
-    private TextField nameField;
+    private Header header;
+    private Content content;
+    private Footer footer;
+
+
 
     public ApplicationUI(RootPM rootPM) {
         this.rootPM = rootPM;
@@ -31,19 +33,29 @@ public class ApplicationUI extends BorderPane implements ViewMixin {
 
     @Override
     public void initializeParts() {
+        header = new Header(rootPM);
+        content = new Content(rootPM);
+        footer = new Footer(rootPM);
+        /*
         idLabel   = new Label();
         nameField = new TextField();
         displayForm = new FormRenderer(rootPM.getFormsPM().getFormInstance());
+        */
     }
 
     @Override
     public void layoutParts() {
+        getChildren().addAll(header, content, footer);
+        setSpacing(10);
+
+        /*
         getChildren().addAll(idLabel, nameField);
         ScrollPane scrollPane = new ScrollPane(displayForm);
         scrollPane.setFitToHeight(true);
         scrollPane.setFitToWidth(true);
         
         setCenter(scrollPane);
+        */
     }
 
     @Override
