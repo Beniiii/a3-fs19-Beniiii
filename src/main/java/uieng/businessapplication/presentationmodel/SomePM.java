@@ -5,18 +5,18 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import uieng.businessapplication.service.SomeDTO;
+import uieng.businessapplication.service.SongDTO;
 
 public class SomePM {
 
     private final LongProperty   id   = new SimpleLongProperty();
     private final StringProperty name = new SimpleStringProperty();
 
-    public static SomePM of(SomeDTO someDTO) {
+    public static SomePM of(SongDTO someDTO) {
         SomePM pm = new SomePM();
 
-        pm.setId(someDTO.getId());
-        pm.setName(someDTO.getName());
+        //pm.setId(someDTO.getId());
+        //pm.setName(someDTO.getName());
 
         return pm;
     }
