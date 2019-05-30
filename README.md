@@ -1,7 +1,8 @@
-# Workshop4c (UI Engineering) Abschlussprojekt
+﻿# Workshop4c (UI Engineering) Abschlussprojekt
 
 ## Bearbeitet von
- - Vorname Nachname 
+ - Benjamin Huber
+ - Kenneth Steiner
  
 ## Abgabe und Präsentation
 - Montag, 3.6.2019
