@@ -7,7 +7,7 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import uieng.businessapplication.service.SomeDTO;
+import uieng.businessapplication.service.SongDTO;
 
 public class SongPM {
 
@@ -19,11 +19,11 @@ public class SongPM {
     private final StringProperty genre = new SimpleStringProperty();
     private final DoubleProperty hottness = new SimpleDoubleProperty();
 
-    public static SongPM of(SomeDTO someDTO) {
+    public static SongPM of(SongDTO someDTO) {
         SongPM pm = new SongPM();
 
         pm.setId(someDTO.getId());
-        pm.setTitle(someDTO.getName());
+        pm.setTitle(someDTO.getTitle());
 
         return pm;
     }
