@@ -11,17 +11,23 @@ public class RootPM {
     private final StringProperty applicationTitle = new SimpleStringProperty("Cool App");
     private final SomeService    service;
 
-    private SomePM currentPM;
+    private SongPM currentPM;
+    private FormsPM formsPM;
 
     public RootPM(SomeService service) {
         this.service = service;
 
         long id = new Random().nextInt(100) + 1;
-        currentPM = SomePM.of(service.get(id));
+        currentPM = SongPM.of(service.get(id));
+        formsPM = new FormsPM(currentPM);
     }
 
-    public SomePM getCurrentPM() {
+    public SongPM getCurrentPM() {
         return currentPM;
+    }
+    
+    public FormsPM getFormsPM() {
+        return formsPM;
     }
 
     // alle Getter und Setter
@@ -36,5 +42,7 @@ public class RootPM {
     public void setApplicationTitle(String applicationTitle) {
         this.applicationTitle.set(applicationTitle);
     }
+    
+
 
 }
