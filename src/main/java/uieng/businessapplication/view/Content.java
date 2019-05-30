@@ -2,6 +2,7 @@ package uieng.businessapplication.view;
 
 import com.dlsc.formsfx.view.renderer.FormRenderer;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.presentationmodel.SongPM;
@@ -25,7 +26,13 @@ public class Content extends FHNWTableView<SongPM> implements ViewMixin {
 
     @Override
     public void initializeParts() {
+        TableColumn<SongPM, String> artistCol = new TableColumn<>("Artist");
+        artistCol.setCellValueFactory(cell -> cell.getValue().artistProperty());
 
+        TableColumn<SongPM, String> durationCol = new TableColumn<>("Duration");
+        durationCol.setCellValueFactory(cell -> cell.getValue().durationProperty().asString());
+
+        getColumns().addAll(artistCol, durationCol);
     }
 
     @Override
@@ -35,6 +42,6 @@ public class Content extends FHNWTableView<SongPM> implements ViewMixin {
 
     @Override
     public void setupBindings() {
-
+        itemsProperty().bind(rootPM.filteredSongsProperty());
     }
 }
