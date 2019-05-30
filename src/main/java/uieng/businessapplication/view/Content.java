@@ -1,9 +1,6 @@
 package uieng.businessapplication.view;
 
-import com.dlsc.formsfx.view.renderer.FormRenderer;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.presentationmodel.SongPM;
 import uieng.businessapplication.view.util.FHNWTableView;
@@ -26,13 +23,26 @@ public class Content extends FHNWTableView<SongPM> implements ViewMixin {
 
     @Override
     public void initializeParts() {
+
+        TableColumn<SongPM, String> titleCol = new TableColumn<>("Titel");
+        titleCol.setCellValueFactory(cell -> cell.getValue().titleProperty());
+
+        TableColumn<SongPM, String> albumCol = new TableColumn<>("Album");
+        albumCol.setCellValueFactory(cell -> cell.getValue().albumProperty());
+
         TableColumn<SongPM, String> artistCol = new TableColumn<>("Artist");
         artistCol.setCellValueFactory(cell -> cell.getValue().artistProperty());
 
         TableColumn<SongPM, String> durationCol = new TableColumn<>("Duration");
         durationCol.setCellValueFactory(cell -> cell.getValue().durationProperty().asString());
 
-        getColumns().addAll(artistCol, durationCol);
+        TableColumn<SongPM, String> genreCol = new TableColumn<>("Genre");
+        genreCol.setCellValueFactory(cell -> cell.getValue().genreProperty());
+
+        TableColumn<SongPM, String> hotnessCol = new TableColumn<>("Hotness");
+        hotnessCol.setCellValueFactory(cell -> cell.getValue().hotnessProperty().asString());
+
+        getColumns().addAll(titleCol, albumCol, artistCol, durationCol, genreCol, hotnessCol);
     }
 
     @Override

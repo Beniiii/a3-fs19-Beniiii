@@ -22,13 +22,13 @@ public class SongPM implements PMBase<SongDTO> {
 
     @Override
     public void apply(SongDTO dto) {
-        setId(dto.getId());
+        //setId(dto.getId());
         setTitle(dto.getTitle());
         setAlbum(dto.getAlbum());
         setArtist(dto.getArtist());
         setDuration(dto.getDuration());
         setGenre(dto.getGenre());
-        setHotness(dto.getHotness());
+        //setHotness(dto.getHotness());
     }
 
     /*
@@ -122,7 +122,7 @@ public class SongPM implements PMBase<SongDTO> {
         return hotness.get();
     }
 
-    public DoubleProperty hottnessProperty() {
+    public DoubleProperty hotnessProperty() {
         return hotness;
     }
 

@@ -3,6 +3,7 @@ package uieng.businessapplication.view;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import uieng.businessapplication.presentationmodel.RootPM;
+import uieng.businessapplication.presentationmodel.util.PagingList;
 import uieng.businessapplication.view.util.ViewMixin;
 
 public class Footer extends HBox implements ViewMixin {
@@ -37,6 +38,8 @@ public class Footer extends HBox implements ViewMixin {
 
     @Override
     public void setupBindings() {
+        PagingList filteredSongs = rootPM.getFilteredSongs();
 
+        lbCount.textProperty().bind(filteredSongs.filteredCountProperty().asString().concat(" / ").concat(filteredSongs.totalCountProperty()));
     }
 }

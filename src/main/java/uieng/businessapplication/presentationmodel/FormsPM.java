@@ -4,13 +4,8 @@ import com.dlsc.formsfx.model.structure.*;
 import com.dlsc.formsfx.model.util.BindingMode;
 import com.dlsc.formsfx.model.util.ResourceBundleService;
 import com.dlsc.formsfx.model.validators.DoubleRangeValidator;
-import com.dlsc.formsfx.model.validators.IntegerRangeValidator;
 import com.dlsc.formsfx.model.validators.StringLengthValidator;
 import com.dlsc.formsfx.view.util.ColSpan;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.concurrent.Service;
-import javafx.scene.control.TextField;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -83,7 +78,7 @@ public class FormsPM {
                         Field.ofStringType(model.genreProperty())
                                 .label("genre_label")
                                 .span(ColSpan.HALF),
-                        Field.ofDoubleType(model.hottnessProperty())
+                        Field.ofDoubleType(model.hotnessProperty())
                                 .label("hotness_label")
                                 .span(ColSpan.HALF)
                                 .placeholder("hotness_placeholder")
