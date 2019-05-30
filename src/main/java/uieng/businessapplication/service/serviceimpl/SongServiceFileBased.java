@@ -14,7 +14,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SongServiceFileBased implements PagingService<SongDTO> {
@@ -72,7 +74,18 @@ public class SongServiceFileBased implements PagingService<SongDTO> {
 
     @Override
     public Page<SongDTO> getPage(int start, int pageSize, String filter) {
-        return null;
+        List<SongDTO> items = getItems(start, pageSize, filter);
+        return new Page<>(getFilteredCount(filter), getTotalCount(), start, items.size(), items);
+    }
+
+    private List<SongDTO> getItems(int start, int pageSize, String filter) {
+        try (Stream<String> streamOfLines = getStreamOfLines(FILE_NAME)) {
+            return streamOfLines.skip(start + 1)
+                    .filter(line -> contains(line, filter))
+                    .map(s -> new SongDTO(s.split(DELIMITER, NUMBER_OF_COLUMNS)))
+                    .limit(pageSize)
+                    .collect(Collectors.toList());
+        }
     }
 
     private boolean contains(String line, String filter){

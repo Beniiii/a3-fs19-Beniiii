@@ -24,8 +24,8 @@ public class RootPM {
 
     private final TaskBatcher taskBatcher = new TaskBatcher(Duration.ofMillis(250));
 
-    private SongPM currentPM;
-    private FormsPM formsPM;
+    //private SongPM currentPM;
+    //private FormsPM formsPM;
 
     public RootPM(PagingService<SongDTO> service) {
         //this.service = service;
@@ -39,6 +39,7 @@ public class RootPM {
                 taskBatcher.batch(() -> setFilteredSongs(new PagingList<>(service, fSong, newValue))));
     }
 
+    /*
     public SongPM getCurrentPM() {
         return currentPM;
     }
@@ -46,6 +47,7 @@ public class RootPM {
     public FormsPM getFormsPM() {
         return formsPM;
     }
+    */
 
     // alle Getter und Setter
     public String getApplicationTitle() {
