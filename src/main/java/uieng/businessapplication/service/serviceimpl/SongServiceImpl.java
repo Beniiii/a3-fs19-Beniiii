@@ -13,7 +13,7 @@ public class SongServiceImpl implements SongService {
     private static final String FILE_NAME         = "/data/songs.csv";
     private static final String DELIMITER         = ";";
     private static final int    NUMBER_OF_COLUMNS = 35;
-    private static final int    ID_COLUMN         = 0;
+    private static final int    ID_COLUMN         = 24;
 
     @Override
     public SongDTO get(long id) {
