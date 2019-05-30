@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
-public class SongServiceImpl implements PagingService<SongPM> {
+public class SongServiceFileBased implements PagingService<SongDTO> {
     private static final String FILE_NAME         = "/data/songs.csv";
     private static final String DELIMITER         = ";";
     private static final int    NUMBER_OF_COLUMNS = 35;
@@ -71,7 +71,7 @@ public class SongServiceImpl implements PagingService<SongPM> {
     }
 
     @Override
-    public Page<SongPM> getPage(int start, int pageSize, String filter) {
+    public Page<SongDTO> getPage(int start, int pageSize, String filter) {
         return null;
     }
 
