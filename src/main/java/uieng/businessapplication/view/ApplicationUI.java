@@ -60,7 +60,7 @@ public class ApplicationUI extends VBox implements ViewMixin {
 
     @Override
     public void setupBindings() {
-        idLabel.textProperty().bind(rootPM.getCurrentPM().idProperty().asString());
+        //idLabel.textProperty().bind(rootPM.getCurrentPM().idProperty().asString());
     
     }
 }

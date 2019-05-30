@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty;
 
 import uieng.businessapplication.service.SongDTO;
 
-public class SongPM implements PMBase<Object> {
+public class SongPM implements PMBase<SongDTO> {
 
     private final LongProperty   id   = new SimpleLongProperty();
     private final StringProperty title = new SimpleStringProperty();
@@ -19,20 +19,33 @@ public class SongPM implements PMBase<Object> {
     private final StringProperty genre = new SimpleStringProperty();
     private final DoubleProperty hotness = new SimpleDoubleProperty();
 
-    public static SongPM of(SongDTO songDTO) {
-        SongPM pm = new SongPM();
 
-        pm.setId(songDTO.getId());
-        pm.setTitle(songDTO.getTitle());
-        pm.setAlbum(songDTO.getAlbum());
-        pm.setArtist(songDTO.getArtist());
-        pm.setDuration(songDTO.getDuration());
-        pm.setGenre(songDTO.getGenre());
-        pm.setHotness(songDTO.getHotness());
-
-        return pm;
+    @Override
+    public void apply(SongDTO dto) {
+        setId(dto.getId());
+        setTitle(dto.getTitle());
+        setAlbum(dto.getAlbum());
+        setArtist(dto.getArtist());
+        setDuration(dto.getDuration());
+        setGenre(dto.getGenre());
+        setHotness(dto.getHotness());
     }
 
+    /*
+        public static SongPM of(SongDTO songDTO) {
+            SongPM pm = new SongPM();
+
+            pm.setId(songDTO.getId());
+            pm.setTitle(songDTO.getTitle());
+            pm.setAlbum(songDTO.getAlbum());
+            pm.setArtist(songDTO.getArtist());
+            pm.setDuration(songDTO.getDuration());
+            pm.setGenre(songDTO.getGenre());
+            pm.setHotness(songDTO.getHotness());
+
+            return pm;
+        }
+    */
     public long getId() {
         return id.get();
     }

@@ -17,7 +17,7 @@ public class Content extends FHNWTableView<SongPM> implements ViewMixin {
     private TextField nameField;
 */
     public Content(RootPM rootPM) {
-        super(rootPM.getCurrentPM());
+        super(rootPM.getFilteredSongs());
 
         this.rootPM = rootPM;
         init();
