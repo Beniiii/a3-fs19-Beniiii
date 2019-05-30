@@ -18,7 +18,6 @@ public class RootPM {
         this.service = service;
 
         long id = new Random().nextInt(100) + 1;
-        System.out.println(id);
         currentPM = SongPM.of(service.get(id));
         formsPM = new FormsPM(currentPM);
     }

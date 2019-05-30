@@ -17,13 +17,18 @@ public class SongPM {
     private final StringProperty artist = new SimpleStringProperty();
     private final DoubleProperty duration = new SimpleDoubleProperty();
     private final StringProperty genre = new SimpleStringProperty();
-    private final DoubleProperty hottness = new SimpleDoubleProperty();
+    private final DoubleProperty hotness = new SimpleDoubleProperty();
 
-    public static SongPM of(SongDTO someDTO) {
+    public static SongPM of(SongDTO songDTO) {
         SongPM pm = new SongPM();
 
-        pm.setId(someDTO.getId());
-        pm.setTitle(someDTO.getTitle());
+        pm.setId(songDTO.getId());
+        pm.setTitle(songDTO.getTitle());
+        pm.setAlbum(songDTO.getAlbum());
+        pm.setArtist(songDTO.getArtist());
+        pm.setDuration(songDTO.getDuration());
+        pm.setGenre(songDTO.getGenre());
+        pm.setHotness(songDTO.getHotness());
 
         return pm;
     }
@@ -100,15 +105,15 @@ public class SongPM {
         this.genre.set(genre);
     }
     
-    public double getHottness() {
-        return hottness.get();
+    public double getHotness() {
+        return hotness.get();
     }
 
     public DoubleProperty hottnessProperty() {
-        return hottness;
+        return hotness;
     }
 
-    public void setHottness(double hottness) {
-        this.hottness.set(hottness);
+    public void setHotness(double hotness) {
+        this.hotness.set(hotness);
     }
 }

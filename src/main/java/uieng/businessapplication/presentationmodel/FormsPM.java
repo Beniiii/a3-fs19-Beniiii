@@ -61,32 +61,33 @@ public class FormsPM {
         formInstance = Form.of(
                 Group.of(
                         Field.ofStringType(model.titleProperty())
-                                .required("kuerzel_label")
-                                .label("canton_label")
+                                .required("empty_field")
+                                .label("title_label")
                                 .span(ColSpan.HALF)
-                                .validate(StringLengthValidator.atLeast(1, "error_canton")),
+                                .validate(StringLengthValidator.atLeast(1, "required_error_message")),
                         Field.ofStringType(model.albumProperty())
                                 .required("empty_field")
-                                .label("kuerzel_label")
+                                .label("album_label")
                                 .span(ColSpan.HALF)
-                                .validate(StringLengthValidator.exactly(2, "error_kuerzel")),
+                                .validate(StringLengthValidator.atLeast(1, "required_error_message")),
                         Field.ofStringType(model.artistProperty())
                                 .required("empty_field")
-                                .validate(StringLengthValidator.atLeast(1, "error_canton"))
-                                .label("cantonnr_label")
+                                .validate(StringLengthValidator.atLeast(1, "required_error_message"))
+                                .label("artist_label")
                                 .span(ColSpan.HALF),
                         Field.ofDoubleType(model.durationProperty())
-                                .label("voice_label")
+                                .label("duration_label")
                                 .span(ColSpan.HALF)
-                                .validate(DoubleRangeValidator.between(0.5, 1.0, "error_standesstime")),
+                                .placeholder("duration_placeholder")
+                                .validate(DoubleRangeValidator.between(0.0, 100000.0, "format_error_message")),
                         Field.ofStringType(model.genreProperty())
-                                .label("accession_label")
-                                .span(ColSpan.HALF)
-                                .validate(StringLengthValidator.atLeast(1, "error_canton")),
+                                .label("genre_label")
+                                .span(ColSpan.HALF),
                         Field.ofDoubleType(model.hottnessProperty())
-                                .label("city_label")
+                                .label("hotness_label")
                                 .span(ColSpan.HALF)
-                                .validate(DoubleRangeValidator.between(0.5, 1.0, "error_standesstime"))
+                                .placeholder("hotness_placeholder")
+                                .validate(DoubleRangeValidator.between(0.0, 2.0, "format_error_message"))
                         
                 )
 
