@@ -39,7 +39,6 @@ public class FHNWTableView<PM extends PMBase<?>> extends TableView<PM> {
             ll.setFirstIndexShown(first);
         });
 
-        // das hat bei der TableView noch gefehlt. Bei der ListView ist es drin
         itemsProperty().addListener((observable, oldValue, newValue) -> {
             PagingList pagingList = getPagingList();
             pagingList.setVisibleRows(visibleRows(flow));

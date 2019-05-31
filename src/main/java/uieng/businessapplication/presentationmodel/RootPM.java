@@ -1,7 +1,6 @@
 package uieng.businessapplication.presentationmodel;
 
 import java.time.Duration;
-import java.util.Random;
 import java.util.function.Function;
 
 import javafx.beans.property.*;
@@ -10,7 +9,6 @@ import uieng.businessapplication.presentationmodel.util.PagingList;
 import uieng.businessapplication.presentationmodel.util.TaskBatcher;
 import uieng.businessapplication.service.PagingService;
 import uieng.businessapplication.service.SongDTO;
-import uieng.businessapplication.service.SongService;
 
 public class RootPM {
     private final StringProperty applicationTitle = new SimpleStringProperty("Cool App");
