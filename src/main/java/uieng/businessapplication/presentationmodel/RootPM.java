@@ -23,29 +23,29 @@ public class RootPM {
     private final TaskBatcher taskBatcher = new TaskBatcher(Duration.ofMillis(250));
 
     //private SongPM currentPM;
-    //private FormsPM formsPM;
+    private FormsPM formsPM;
 
     public RootPM(PagingService<SongDTO> service) {
         //this.service = service;
 
         //long id = new Random().nextInt(100) + 1;
         //currentPM = SongPM.of(service.get(id));
-        //formsPM = new FormsPM(currentPM);
+        formsPM = new FormsPM(new SongPM());
         setFilteredSongs(new PagingList<>(service, index -> new SongPM(), null));
 
         filter.addListener((observable, oldValue, newValue) ->
                 taskBatcher.batch(() -> setFilteredSongs(new PagingList<>(service, fSong, newValue))));
     }
 
-    /*
-    public SongPM getCurrentPM() {
-        return currentPM;
-    }
+  
+//    public SongPM getCurrentPM() {
+//        return currentPM;
+//    }
     
     public FormsPM getFormsPM() {
         return formsPM;
     }
-    */
+
 
     // alle Getter und Setter
     public String getApplicationTitle() {
