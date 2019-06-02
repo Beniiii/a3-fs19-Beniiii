@@ -27,9 +27,7 @@ public class FormsPM {
     // all controls
     private Form formInstance;
     private SongPM model;
-    private DoubleField flaecheField;
-    private boolean checkIfEinwohnerAndFlaecheIsFilled;
-
+    
     FormsPM(SongPM model) {
         this.model = model;
     }
@@ -113,12 +111,6 @@ public class FormsPM {
 
     public void setupValueChangeListener() {
 
-        flaecheField.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (flaecheField.hasChanged()) {
-                checkIfEinwohnerAndFlaecheIsFilled = true;
-
-            }
-        });
     }
 }
 

@@ -16,13 +16,12 @@ public class AppStarter extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        //PagingService<SongDTO> service   = new SongServiceFileBased();
         PagingService<SongDTO> service = new SongServiceFileBased();
 
         RootPM      pm        = new RootPM(service);
         Parent      rootPanel = new ApplicationUI(pm);
 
-        Scene scene = new Scene(rootPanel);
+        Scene scene = new Scene(rootPanel, 800, 600);
 
         primaryStage.titleProperty().bind(pm.getFormsPM().getFormInstance().titleProperty());
 

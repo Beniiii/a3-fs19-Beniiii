@@ -1,11 +1,5 @@
 package uieng.businessapplication.view;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.TableColumn;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.presentationmodel.SongPM;
@@ -15,13 +9,6 @@ import uieng.businessapplication.view.util.ViewMixin;
 public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
     private RootPM rootPM;
 
-    private final StringProperty titleHead = new SimpleStringProperty();
-    private final StringProperty albumHead = new SimpleStringProperty();
-    private final StringProperty artistHead = new SimpleStringProperty();
-    private final StringProperty durationHead = new SimpleStringProperty();
-    private final StringProperty genreHead = new SimpleStringProperty();
-    private final StringProperty hotnessHead = new SimpleStringProperty();
-    
     TableColumn<SongPM, String> titleCol;
     TableColumn<SongPM, String> albumCol;
     TableColumn<SongPM, String> artistCol;
@@ -62,7 +49,12 @@ public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
 
     @Override
     public void layoutParts() {
-
+    	titleCol.prefWidthProperty().bind(this.widthProperty().multiply(0.20));
+    	albumCol.prefWidthProperty().bind(this.widthProperty().multiply(0.20));
+    	artistCol.prefWidthProperty().bind(this.widthProperty().multiply(0.20));
+    	durationCol.prefWidthProperty().bind(this.widthProperty().multiply(0.1));
+    	genreCol.prefWidthProperty().bind(this.widthProperty().multiply(0.15));
+    	hotnessCol.prefWidthProperty().bind(this.widthProperty().multiply(0.1));
     }
     
     @Override
@@ -81,77 +73,5 @@ public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
     	genreCol.textProperty().bind(rootPM.getFormsPM().getFormInstance().getFields().get(4).labelProperty());
     	hotnessCol.textProperty().bind(rootPM.getFormsPM().getFormInstance().getFields().get(5).labelProperty());
     }
-    
-
-    public String getTitleHead() {
-        return titleHead.get();
-    }
-
-    public StringProperty titleHeadProperty() {
-        return titleHead;
-    }
-
-    public void setTitleHead(String titleHead) {
-        this.titleHead.set(titleHead);
-    }
-    
-    public String getAlbumHead() {
-        return albumHead.get();
-    }
-
-    public StringProperty albumHeadProperty() {
-        return albumHead;
-    }
-
-    public void setAlbumHead(String albumHead) {
-        this.albumHead.set(albumHead);
-    }
-    
-    public String getArtistHead() {
-        return artistHead.get();
-    }
-
-    public StringProperty artistHeadProperty() {
-        return artistHead;
-    }
-
-    public void setArtistHead(String artistHead) {
-        this.artistHead.set(artistHead);
-    }
-    
-    public String getDurationHead() {
-        return durationHead.get();
-    }
-
-    public StringProperty durationHeadProperty() {
-        return durationHead;
-    }
-
-    public void setDurationHead(String durationHead) {
-        this.durationHead.set(durationHead);
-    }
-    
-    public String getGenreHead() {
-        return genreHead.get();
-    }
-
-    public StringProperty genreHeadProperty() {
-        return genreHead;
-    }
-
-    public void setGenreHead(String genreHead) {
-        this.genreHead.set(genreHead);
-    }
-    
-    public String getHotnessHead() {
-        return hotnessHead.get();
-    }
-
-    public StringProperty hotnessHeadProperty() {
-        return hotnessHead;
-    }
-
-    public void setHotnessHead(String hotnessHead) {
-        this.hotnessHead.set(hotnessHead);
-    }
+  
 }

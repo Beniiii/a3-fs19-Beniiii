@@ -16,7 +16,6 @@ public class RootPM {
     private SongPM songProxy;
     
     private final StringProperty applicationTitle = new SimpleStringProperty();
-    //private final SongService    service;
     private static final Function<Integer, SongPM> fSong = index -> new SongPM();
     private final StringProperty filter = new SimpleStringProperty();
     private final IntegerProperty filteredCount = new SimpleIntegerProperty();
@@ -70,15 +69,9 @@ public class RootPM {
    	 	songProxy.hotnessProperty().bindBidirectional(newSong.hotnessProperty());
     }
 
-  
-//    public SongPM getCurrentPM() {
-//        return currentPM;
-//    }
-    
     public FormsPM getFormsPM() {
         return formsPM;
     }
-
 
     // alle Getter und Setter
     public String getApplicationTitle() {
