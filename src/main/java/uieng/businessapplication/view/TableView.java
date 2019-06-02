@@ -45,6 +45,7 @@ public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
         hotnessCol.setCellValueFactory(cell -> cell.getValue().hotnessProperty().asString());
 
         getColumns().addAll(titleCol, albumCol, artistCol, durationCol, genreCol, hotnessCol);
+        getSelectionModel().selectFirst();
     }
 
     @Override

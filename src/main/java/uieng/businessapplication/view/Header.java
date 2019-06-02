@@ -43,6 +43,7 @@ public class Header extends HBox implements ViewMixin {
 
         languageDE = new Button("\ue001");
         languageDE.getStyleClass().add("flaticon");
+        languageDE.setDisable(true);
 
         languageEN = new Button("\ue000");
         languageEN.getStyleClass().add("flaticon");
