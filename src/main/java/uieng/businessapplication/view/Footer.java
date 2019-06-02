@@ -1,5 +1,6 @@
 package uieng.businessapplication.view;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import uieng.businessapplication.presentationmodel.RootPM;
@@ -23,6 +24,7 @@ public class Footer extends HBox implements ViewMixin {
 
     @Override
     public void layoutParts() {
+        setMargin(lbCount, new Insets(0, 20, 10, 20));
         getChildren().add(lbCount);
     }
 

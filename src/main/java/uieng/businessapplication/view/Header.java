@@ -1,8 +1,10 @@
 package uieng.businessapplication.view;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.view.util.ViewMixin;
 
@@ -19,19 +21,37 @@ public class Header extends HBox implements ViewMixin {
         init();
     }
 
+    @Override
+    public void initializeSelf() {
+        getStyleClass().add("tool-bar");
+    }
 
     @Override
     public void initializeParts() {
         tfFilter = new TextField();
-        save = new Button("Save");
-        reset = new Button("Reset");
+
+        save = new Button("\uf0c7");
+        save.getStyleClass().add("fontawesome");
+
+        reset = new Button("\uf0e2");
+        reset.getStyleClass().add("fontawesome");
+
         languageDE = new Button("\ue001");
+        languageDE.getStyleClass().add("flaticon");
+
         languageEN = new Button("\ue000");
+        languageEN.getStyleClass().add("flaticon");
     }
 
     @Override
     public void layoutParts() {
-        getChildren().addAll(tfFilter, save, reset, languageDE, languageEN);
+        HBox spacer = new HBox();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        setMargin(spacer, new Insets(0, 20, 10, 20));
+        setMargin(tfFilter, new Insets(2, 10, 0, 15));
+        setMargin(languageEN, new Insets(2, 10, 0, 0));
+        getChildren().addAll(tfFilter, save, reset, spacer, languageDE, languageEN);
     }
     
     @Override
