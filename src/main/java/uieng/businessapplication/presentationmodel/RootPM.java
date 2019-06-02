@@ -18,23 +18,56 @@ public class RootPM {
     private final IntegerProperty filteredCount = new SimpleIntegerProperty();
     private final IntegerProperty totalCount = new SimpleIntegerProperty();
     private final ObjectProperty<PagingList<SongPM, SongDTO>> filteredSongs = new SimpleObjectProperty<>();
+    private final ObjectProperty<SongPM> selectedSong = new SimpleObjectProperty<>();
 
 
     private final TaskBatcher taskBatcher = new TaskBatcher(Duration.ofMillis(250));
 
     //private SongPM currentPM;
     private FormsPM formsPM;
+    private SongPM songProxy;
 
     public RootPM(PagingService<SongDTO> service) {
-        //this.service = service;
-
-        //long id = new Random().nextInt(100) + 1;
-        //currentPM = SongPM.of(service.get(id));
-        formsPM = new FormsPM(new SongPM());
+    	songProxy = new SongPM();
+    	selectedSongProperty().addListener((observable, oldSong, newSong) -> {
+    		if(oldSong != null) {
+    			unbindFromProxy(oldSong);
+    		}
+    		if (newSong != null) {
+    	    	bindToProxy(newSong);
+    	    }
+    	});
+    	
+    	selectedSong.set(new SongPM());;
+    	
+        formsPM = new FormsPM(songProxy);
+        
         setFilteredSongs(new PagingList<>(service, index -> new SongPM(), null));
 
         filter.addListener((observable, oldValue, newValue) ->
                 taskBatcher.batch(() -> setFilteredSongs(new PagingList<>(service, fSong, newValue))));
+        
+    }
+    
+    
+    private void unbindFromProxy(SongPM oldSong) {
+    	songProxy.idProperty().unbindBidirectional(oldSong.idProperty());
+    	songProxy.titleProperty().unbindBidirectional(oldSong.titleProperty());
+    	songProxy.albumProperty().unbindBidirectional(oldSong.albumProperty());
+    	songProxy.artistProperty().unbindBidirectional(oldSong.artistProperty());
+    	songProxy.durationProperty().unbindBidirectional(oldSong.durationProperty());
+    	songProxy.genreProperty().unbindBidirectional(oldSong.genreProperty());
+    	songProxy.hotnessProperty().unbindBidirectional(oldSong.hotnessProperty());
+    }
+
+    private void bindToProxy(SongPM newSong) {
+    	songProxy.idProperty().bindBidirectional(newSong.idProperty());
+   	 	songProxy.titleProperty().bindBidirectional(newSong.titleProperty());
+   	 	songProxy.albumProperty().bindBidirectional(newSong.albumProperty());
+   	 	songProxy.artistProperty().bindBidirectional(newSong.artistProperty());
+   	 	songProxy.durationProperty().bindBidirectional(newSong.durationProperty());
+   	 	songProxy.genreProperty().bindBidirectional(newSong.genreProperty());
+   	 	songProxy.hotnessProperty().bindBidirectional(newSong.hotnessProperty());
     }
 
   
@@ -106,6 +139,18 @@ public class RootPM {
 
     public void setTotalCount(int totalCount) {
         this.totalCount.set(totalCount);
+    }
+    
+    public SongPM getSelectedSong() {
+        return selectedSong.get();
+    }
+
+    public ObjectProperty<SongPM> selectedSongProperty() {
+        return selectedSong;
+    }
+
+    public void setSelectedSong(SongPM selectedSong) {
+        this.selectedSong.set(selectedSong);
     }
 
 

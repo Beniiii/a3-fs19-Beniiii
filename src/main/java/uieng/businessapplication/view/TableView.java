@@ -49,6 +49,13 @@ public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
     public void layoutParts() {
 
     }
+    
+    @Override
+    public void setupValueChangedListeners() {
+    	getSelectionModel().selectedItemProperty().addListener((e, oldRate, newRate) -> {
+            rootPM.setSelectedSong(newRate);
+        });
+    }
 
     @Override
     public void setupBindings() {
