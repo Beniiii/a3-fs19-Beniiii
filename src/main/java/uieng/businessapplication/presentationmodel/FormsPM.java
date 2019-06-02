@@ -56,17 +56,17 @@ public class FormsPM {
         formInstance = Form.of(
                 Group.of(
                         Field.ofStringType(model.titleProperty())
-                                .required("empty_field")
+                                .required("required_error_message")
                                 .label("title_label")
                                 .span(ColSpan.HALF)
                                 .validate(StringLengthValidator.atLeast(1, "required_error_message")),
                         Field.ofStringType(model.albumProperty())
-                                .required("empty_field")
+                                .required("required_error_message")
                                 .label("album_label")
                                 .span(ColSpan.HALF)
                                 .validate(StringLengthValidator.atLeast(1, "required_error_message")),
                         Field.ofStringType(model.artistProperty())
-                                .required("empty_field")
+                                .required("required_error_message")
                                 .validate(StringLengthValidator.atLeast(1, "required_error_message"))
                                 .label("artist_label")
                                 .span(ColSpan.HALF),
@@ -87,7 +87,8 @@ public class FormsPM {
                 )
 
 
-        ).binding(BindingMode.CONTINUOUS)
+        )
+        		.title("form_label")
                 .i18n(rbs);
     }
 

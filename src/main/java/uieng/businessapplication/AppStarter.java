@@ -24,7 +24,7 @@ public class AppStarter extends Application {
 
         Scene scene = new Scene(rootPanel);
 
-        primaryStage.titleProperty().bind(pm.applicationTitleProperty());
+        primaryStage.titleProperty().bind(pm.getFormsPM().getFormInstance().titleProperty());
 
         primaryStage.setScene(scene);
 

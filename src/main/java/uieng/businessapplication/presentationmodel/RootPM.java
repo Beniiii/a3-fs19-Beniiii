@@ -11,7 +11,11 @@ import uieng.businessapplication.service.PagingService;
 import uieng.businessapplication.service.SongDTO;
 
 public class RootPM {
-    private final StringProperty applicationTitle = new SimpleStringProperty("Cool App");
+	
+	private FormsPM formsPM;
+    private SongPM songProxy;
+    
+    private final StringProperty applicationTitle = new SimpleStringProperty();
     //private final SongService    service;
     private static final Function<Integer, SongPM> fSong = index -> new SongPM();
     private final StringProperty filter = new SimpleStringProperty();
@@ -22,11 +26,7 @@ public class RootPM {
 
 
     private final TaskBatcher taskBatcher = new TaskBatcher(Duration.ofMillis(250));
-
-    //private SongPM currentPM;
-    private FormsPM formsPM;
-    private SongPM songProxy;
-
+    
     public RootPM(PagingService<SongDTO> service) {
     	songProxy = new SongPM();
     	selectedSongProperty().addListener((observable, oldSong, newSong) -> {

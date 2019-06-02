@@ -30,6 +30,6 @@ public class Content extends VBox implements ViewMixin {
 
     @Override
     public void setupBindings() {
-     
+    	
     }
 }
