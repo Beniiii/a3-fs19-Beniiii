@@ -66,6 +66,7 @@ public class TableView extends FHNWTableView<SongPM> implements ViewMixin {
 
     @Override
     public void setupBindings() {
+    	itemsProperty().bind(rootPM.filteredSongsProperty());
     	titleCol.textProperty().bind(rootPM.getFormsPM().getFormInstance().getFields().get(0).labelProperty());
     	albumCol.textProperty().bind(rootPM.getFormsPM().getFormInstance().getFields().get(1).labelProperty());
     	artistCol.textProperty().bind(rootPM.getFormsPM().getFormInstance().getFields().get(2).labelProperty());
