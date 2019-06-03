@@ -1,6 +1,5 @@
 package uieng.businessapplication.view;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 import uieng.businessapplication.presentationmodel.RootPM;
 import uieng.businessapplication.view.util.ViewMixin;
@@ -11,8 +10,6 @@ public class ApplicationUI extends VBox implements ViewMixin {
     private Header header;
     private Content content;
     private Footer footer;
-
-
 
     public ApplicationUI(RootPM rootPM) {
         this.rootPM = rootPM;

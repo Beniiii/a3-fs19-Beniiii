@@ -8,6 +8,5 @@ public interface PagingService<DTO> {
 
     int getFilteredCount(String filter);
 
-    //List<DTO> getPage(int start, int pageSize, String filter);
     Page<DTO> getPage(int start, int pageSize, String filter);
 }

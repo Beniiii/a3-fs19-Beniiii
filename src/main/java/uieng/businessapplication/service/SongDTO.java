@@ -20,8 +20,6 @@ public class SongDTO {
         duration = Double.parseDouble(args[9]);
         genre = args[29];
         hotness = Double.parseDouble((args[23].isEmpty() ? "0.0" : args[23]));
-        //hotness = Double.parseDouble(args[23]);
-        //System.out.println("blas");
     }
 
 

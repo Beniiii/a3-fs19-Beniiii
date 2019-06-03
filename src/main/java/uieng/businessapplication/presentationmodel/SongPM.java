@@ -31,21 +31,6 @@ public class SongPM implements PMBase<SongDTO> {
         setHotness(dto.getHotness());
     }
 
-    /*
-        public static SongPM of(SongDTO songDTO) {
-            SongPM pm = new SongPM();
-
-            pm.setId(songDTO.getId());
-            pm.setTitle(songDTO.getTitle());
-            pm.setAlbum(songDTO.getAlbum());
-            pm.setArtist(songDTO.getArtist());
-            pm.setDuration(songDTO.getDuration());
-            pm.setGenre(songDTO.getGenre());
-            pm.setHotness(songDTO.getHotness());
-
-            return pm;
-        }
-    */
     public long getId() {
         return id.get();
     }
